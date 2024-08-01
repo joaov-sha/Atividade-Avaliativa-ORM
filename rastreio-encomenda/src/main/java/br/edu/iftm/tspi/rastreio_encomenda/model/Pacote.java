@@ -2,13 +2,16 @@ package br.edu.iftm.tspi.rastreio_encomenda.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Pacote {
     
     @Id
     private long id;
+    @OneToOne
     private String destinatario;
+    @OneToOne
     private Endereco enderecoEntrega;
     private StatusPacote statusPacote;
 
@@ -16,7 +19,7 @@ public class Pacote {
         this.id = id;
         this.destinatario = destinatario;
         this.enderecoEntrega = enderecoEntrega;
-        this.statusPacote = statusPacote;
+        this.statusPacote = StatusPacote.PENDENTE;
     }
 
     public long getIdPacote(){
