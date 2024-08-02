@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.iftm.tspi.rastreio_encomenda.model.Pacote;
 
 @Repository
-public interface PacoteRepository extends JpaRepository<Long, Pacote>{
+public interface PacoteRepository extends JpaRepository<Pacote, Long>{
 
     
 } 
