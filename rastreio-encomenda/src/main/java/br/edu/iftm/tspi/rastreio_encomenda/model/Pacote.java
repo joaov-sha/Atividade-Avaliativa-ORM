@@ -3,6 +3,10 @@ package br.edu.iftm.tspi.rastreio_encomenda.model;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
@@ -10,10 +14,12 @@ import jakarta.persistence.OneToOne;
 public class Pacote {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String destinatario;
     @OneToOne
     private Endereco enderecoEntrega;
+    @Enumerated(EnumType.STRING)
     private StatusPacote statusPacote;
     private Date dataPacote;
     private String localizacaoAtual;
