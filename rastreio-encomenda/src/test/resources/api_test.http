@@ -1,0 +1,77 @@
+### Endpoints para Enderecos
+
+GET http://localhost:8080/enderecos
+###
+
+POST http://localhost:8080/enderecos
+Content-Type: application/json
+
+{
+  "estado": "SP",
+  "cidade": "São Paulo",
+  "cep": "01000-000",
+  "rua": "Rua das Flores",
+  "numero": 123
+}
+###
+
+GET http://localhost:8080/enderecos/1
+###
+
+DELETE http://localhost:8080/enderecos/1
+###
+
+### Endpoints para Pacotes
+
+GET http://localhost:8080/pacotes
+###
+
+POST http://localhost:8080/pacotes
+Content-Type: application/json
+
+{
+  "destinatario": "João da Silva",
+  "enderecoEntrega": {
+    "id": 1
+  }
+}
+###
+
+GET http://localhost:8080/pacotes/1
+###
+
+PUT http://localhost:8080/pacotes/1
+Content-Type: application/json
+
+{
+  "destinatario": "Maria de Souza",
+  "enderecoEntrega": {
+    "id": 1
+  },
+  "statusPacote": "EM_TRANSITO"
+}
+###
+
+DELETE http://localhost:8080/pacotes/1
+###
+
+### Endpoints para Rastreamentos
+
+POST http://localhost:8080/rastreamentos
+Content-Type: application/json
+
+{
+  "pacote": {
+    "id": 1
+  },
+  "envioPacote": "2024-08-01T10:00:00",
+  "statusPacote": "EM_TRANSITO",
+  "localizacaoAtual": "Centro de Distribuição"
+}
+###
+
+GET http://localhost:8080/rastreamentos/1
+###
+
+GET http://localhost:8080/rastreamentos
+###
