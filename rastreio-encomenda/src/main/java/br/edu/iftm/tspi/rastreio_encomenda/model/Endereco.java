@@ -1,5 +1,8 @@
 package br.edu.iftm.tspi.rastreio_encomenda.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Endereco {
     
     private String estado;
@@ -54,5 +57,9 @@ public class Endereco {
 
     public void setNumero(int numero){
         this.numero = numero;
+    }
+
+    public String getEnderecoCompleto(){
+        return String.format("O endereço do cliente é:\nCidade: %s - Estado: %s\nCep: %s\nRua: %s - Número: %d", cidade, estado, CEP, rua, numero);
     }
 }

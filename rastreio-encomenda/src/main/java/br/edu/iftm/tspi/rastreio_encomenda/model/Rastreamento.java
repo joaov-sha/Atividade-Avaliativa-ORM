@@ -2,12 +2,16 @@ package br.edu.iftm.tspi.rastreio_encomenda.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
+@Entity
 public class Rastreamento {
     
     @Id
     private long id;
+    @OneToOne
     private Pacote pacote;
     private Date envioPacote;
     private StatusPacote statusPacote;
@@ -54,5 +58,9 @@ public class Rastreamento {
 
     public String getLocalizacaoAtual(){
         return localizacaoAtual;
+    }
+
+    public String getResumo(){
+        return String.format("id: %d\npacote: %s\ndata de envio: %s\nstatus do pacote: %s\n localizacao: %s\n", id, pacote.getIdPacote(), envioPacote.toString(), statusPacote, localizacaoAtual);
     }
 }
