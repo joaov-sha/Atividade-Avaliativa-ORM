@@ -69,4 +69,8 @@ public class Pacote {
     public String consultarInformacoes(){
         return String.format("O pacote identificado como %d, pertence ao destinatário %s, tem como endereço de entrega o endereço: %s , tem como status atual: %s, será entregue em %s, porém encontra-se em %s ", id,destinatario, enderecoEntrega, statusPacote, dataPacote, localizacaoAtual);
     }
+
+    public void setDestinatario(String destinatario) {
+        this.destinatario = destinatario;
+    }
 }
