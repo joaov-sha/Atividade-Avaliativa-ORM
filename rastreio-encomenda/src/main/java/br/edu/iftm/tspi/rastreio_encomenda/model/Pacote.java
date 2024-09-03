@@ -15,7 +15,7 @@ public class Pacote {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idPacote;
     private String destinatario;
     @OneToOne
     private Endereco enderecoEntrega;
@@ -24,8 +24,10 @@ public class Pacote {
     private Date dataPacote;
     private String localizacaoAtual;
 
-    public Pacote(long id, String destinatario, Endereco enderecoEntrega, StatusPacote statusPacote){
-        this.id = id;
+    public Pacote(){}
+
+    public Pacote(long idPacote, String destinatario, Endereco enderecoEntrega, StatusPacote statusPacote){
+        this.idPacote = idPacote;
         this.destinatario = destinatario;
         this.enderecoEntrega = enderecoEntrega;
         this.statusPacote = StatusPacote.PENDENTE;
@@ -33,11 +35,11 @@ public class Pacote {
     }
 
     public long getIdPacote(){
-        return id;
+        return idPacote;
     }
 
-    public void setIdPacote(long id){
-        this.id = id;
+    public void setIdPacote(long idPacote){
+        this.idPacote = idPacote;
     }
 
     public String getDestinatario(){
@@ -67,7 +69,7 @@ public class Pacote {
     }
 
     public String consultarInformacoes(){
-        return String.format("O pacote identificado como %d, pertence ao destinatário %s, tem como endereço de entrega o endereço: %s , tem como status atual: %s, será entregue em %s, porém encontra-se em %s ", id,destinatario, enderecoEntrega, statusPacote, dataPacote, localizacaoAtual);
+        return String.format("O pacote identificado como %d, pertence ao destinatário %s, tem como endereço de entrega o endereço: %s , tem como status atual: %s, será entregue em %s, porém encontra-se em %s ", idPacote,destinatario, enderecoEntrega, statusPacote, dataPacote, localizacaoAtual);
     }
 
     public void setDestinatario(String destinatario) {
