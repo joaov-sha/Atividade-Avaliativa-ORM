@@ -17,14 +17,17 @@ public class Rastreamento {
     private StatusPacote statusPacote;
     private String localizacaoAtual;
 
-    public Rastreamento(long id, Pacote pacote, Date envioPacote, StatusPacote statusPacote){
+    public Rastreamento(){}
+
+    //S1172 Remoção de parametro não utilizado do método
+    public Rastreamento(long id, Pacote pacote, Date envioPacote){
         this.id = id;
         this.pacote = pacote;
         this.envioPacote = envioPacote;
         this.statusPacote = pacote.getStatusPacote();
     }
 
-    public Rastreamento(long id, Pacote pacote, Date envioPacote, StatusPacote statusPacote, String localizacaoAtual){
+    public Rastreamento(long id, Pacote pacote, Date envioPacote, String localizacaoAtual){
         this.id = id;
         this.pacote = pacote;
         this.envioPacote = envioPacote;
@@ -61,6 +64,6 @@ public class Rastreamento {
     }
 
     public String getResumo(){
-        return String.format("id: %d\npacote: %s\ndata de envio: %s\nstatus do pacote: %s\n localizacao: %s\n", id, pacote.getIdPacote(), envioPacote.toString(), statusPacote, localizacaoAtual);
+        return String.format("id: %d%npacote: %s%ndata de envio: %s%nstatus do pacote: %s%n localizacao: %s%n", id, pacote.getIdPacote(), envioPacote.toString(), statusPacote, localizacaoAtual);
     }
 }
