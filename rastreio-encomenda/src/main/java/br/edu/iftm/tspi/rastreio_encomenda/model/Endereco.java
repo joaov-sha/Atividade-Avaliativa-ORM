@@ -13,14 +13,16 @@ public class Endereco {
     private Long id;
     private String estado;
     private String cidade;
-    private String CEP;
+    private String cep;
     private String rua;
     private int numero;
 
-    public Endereco(String estado, String cidade, String CEP, String rua, int numero){
+    public Endereco(){}
+
+    public Endereco(String estado, String cidade, String cep, String rua, int numero){
         this.estado = estado;
         this.cidade = cidade;
-        this.CEP = CEP;
+        this.cep = cep;
         this.rua = rua;
         this.numero = numero;
     }
@@ -50,11 +52,12 @@ public class Endereco {
     }
 
     public String getCEP(){
-        return CEP;
+        return cep;
     }
 
-    public void setCEP(String CEP){
-        this.CEP = CEP;
+    //S117 Renomear variável local para seguir padrão regex
+    public void setCEP(String cep){
+        this.cep = cep;
     }
 
     public int getNumero(){
@@ -65,7 +68,8 @@ public class Endereco {
         this.numero = numero;
     }
 
+    //S3457 Alterar padrão de quebra de linhas para seguir padrão da plataforma de \n para %n
     public String getEnderecoCompleto(){
-        return String.format("O endereço do cliente é:\nCidade: %s - Estado: %s\nCep: %s\nRua: %s - Número: %d", cidade, estado, CEP, rua, numero);
+        return String.format("O endereço do cliente é:%nCidade: %s - Estado: %s%nCep: %s%nRua: %s - Número: %d", cidade, estado, cep, rua, numero);
     }
 }
